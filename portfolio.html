@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Srishti Bhattacharya — Software Developer</title>
+<meta name="description" content="Final-year IT student at Monash. I build full-stack web and Android apps that people actually use.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FBF7F2; --ink:#26222B; --ink-soft:#6B6472;
+  --blush:#E9A6B8; --mint:#9FD3C0; --butter:#F2D06B; --peri:#A9B7F0;
+  --line:#E7E0D8; --card:#FFFFFF;
+  --shadow:0 18px 44px rgba(38,34,43,.14);
+  --maxw:1080px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--paper); color:var(--ink);
+  font-family:'Inter',system-ui,sans-serif; line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+
+/* ---------- nav ---------- */
+nav{
+  position:sticky;top:0;z-index:50;
+  background:rgba(251,247,242,.82);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.nav-in{max-width:var(--maxw);margin:0 auto;padding:16px 28px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.05rem;letter-spacing:-.01em}
+.logo span{color:var(--blush)}
+.nav-links{display:flex;gap:26px;list-style:none}
+.nav-links a{
+  color:var(--ink-soft);text-decoration:none;font-size:.82rem;font-weight:600;
+  letter-spacing:.09em;text-transform:uppercase;padding:4px 0;position:relative;
+}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--blush);transition:width .22s ease}
+.nav-links a:hover{color:var(--ink)}
+.nav-links a:hover::after{width:100%}
+
+/* ---------- eyebrow ---------- */
+.eyebrow{
+  display:flex;align-items:center;gap:12px;
+  font-size:.74rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--ink-soft);margin-bottom:26px;
+}
+.eyebrow::before{content:"";width:34px;height:2px;background:var(--dot,var(--blush))}
+
+/* ---------- the signature: pastel swash behind words ---------- */
+.swash{position:relative;display:inline-block;z-index:0}
+.swash::before{
+  content:"";position:absolute;z-index:-1;
+  left:-.12em;right:-.12em;bottom:.06em;height:.42em;
+  background:var(--sw,var(--blush));
+  border-radius:.35em .6em .4em .55em;
+  transform:rotate(-1.2deg) scaleX(0);transform-origin:left center;
+}
+/* draws itself once its section is revealed (or on load, in the hero) */
+.swash.drawn::before{animation:draw .75s cubic-bezier(.22,1,.36,1) forwards}
+@keyframes draw{to{transform:rotate(-1.2deg) scaleX(1)}}
+.serif-it{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400}
+
+/* ---------- hero ---------- */
+header{padding:96px 0 70px}
+.hero{display:grid;grid-template-columns:1.35fr .85fr;gap:56px;align-items:center}
+.hero-photo{position:relative;justify-self:end}
+.hero-photo .frame{
+  background:var(--card);padding:14px 14px 54px;border-radius:5px;
+  box-shadow:var(--shadow);transform:rotate(2.4deg);
+  transition:transform .5s cubic-bezier(.22,1,.36,1);
+  will-change:transform;
+}
+.hero-photo .frame:hover{transform:rotate(0) scale(1.015)}
+.hero-photo img{width:100%;max-width:330px;aspect-ratio:4/5;object-fit:cover;border-radius:3px;display:block}
+.hero-photo .frame::before{ /* tape */
+  content:"";position:absolute;top:-11px;left:50%;transform:translateX(-50%) rotate(-3deg);
+  width:96px;height:24px;background:var(--butter);opacity:.65;border-radius:2px;
+}
+.hero-photo .cap{
+  position:absolute;left:0;right:0;bottom:16px;text-align:center;
+  font-family:'Instrument Serif',serif;font-style:italic;font-size:1.25rem;color:var(--ink);
+}
+.photo-fallback{
+  width:330px;aspect-ratio:4/5;border-radius:3px;display:grid;place-items:center;
+  background:linear-gradient(150deg,var(--blush),var(--peri));
+  font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:3.4rem;color:#fff;
+}
+
+/* ---------- entrance: staggered rise ---------- */
+@keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@keyframes riseTilt{from{opacity:0;transform:translateY(26px) rotate(6deg)}to{opacity:1;transform:rotate(2.4deg)}}
+.r{opacity:0;animation:rise .72s cubic-bezier(.22,1,.36,1) forwards}
+.r1{animation-delay:.05s} .r2{animation-delay:.16s} .r3{animation-delay:.27s}
+.r4{animation-delay:.38s} .r5{animation-delay:.49s}
+.hero-photo .frame{opacity:0;animation:riseTilt .9s cubic-bezier(.22,1,.36,1) .3s forwards}
+h1{
+  font-family:'Bricolage Grotesque',sans-serif;font-weight:800;
+  font-size:clamp(2.6rem,7.2vw,5.6rem);line-height:.98;letter-spacing:-.035em;
+  margin-bottom:28px;
+}
+.hero-sub{font-size:1.12rem;max-width:50ch;color:var(--ink-soft);margin-bottom:34px}
+.hero-sub strong{color:var(--ink);font-weight:600}
+.hero-row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:13px 24px;border-radius:999px;text-decoration:none;
+  font-weight:700;font-size:.92rem;border:2px solid var(--ink);
+  transition:transform .16s ease, box-shadow .16s ease;
+}
+.btn-solid{background:var(--ink);color:var(--paper)}
+.btn-ghost{background:transparent;color:var(--ink)}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--ink)}
+.btn-ghost:hover{box-shadow:4px 4px 0 var(--blush)}
+.hero-meta{margin-top:38px;font-size:.85rem;color:var(--ink-soft);display:flex;gap:20px;flex-wrap:wrap}
+.hero-meta b{color:var(--ink);font-weight:600}
+
+/* ---------- sections ---------- */
+section{padding:78px 0;border-top:1px solid var(--line)}
+h2{
+  font-family:'Bricolage Grotesque',sans-serif;font-weight:800;
+  font-size:clamp(2rem,4.6vw,3.4rem);line-height:1.02;letter-spacing:-.03em;margin-bottom:16px;
+}
+.sec-lead{color:var(--ink-soft);max-width:56ch;margin-bottom:48px}
+
+/* ---------- work: polaroid cards ---------- */
+.work-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:44px 34px}
+.card{
+  position:relative;background:var(--card);border-radius:6px;
+  padding:14px 14px 22px;box-shadow:var(--shadow);
+  transition:transform .22s ease, box-shadow .22s ease;
+  transform:rotate(var(--rot,0deg));
+}
+.card:nth-child(1){--rot:-1.4deg} .card:nth-child(2){--rot:1.2deg}
+.card:nth-child(3){--rot:-.8deg}  .card:nth-child(4){--rot:1.6deg}
+.card:hover{transform:rotate(0) translateY(-6px);box-shadow:0 26px 56px rgba(38,34,43,.2)}
+.card::before{ /* tape */
+  content:"";position:absolute;top:-9px;left:50%;transform:translateX(-50%) rotate(-2.5deg);
+  width:76px;height:20px;background:var(--tape,var(--mint));opacity:.6;border-radius:2px;
+}
+.card:nth-child(2)::before{--tape:var(--butter)}
+.card:nth-child(3)::before{--tape:var(--peri)}
+.card:nth-child(4)::before{--tape:var(--blush)}
+.shot{width:100%;aspect-ratio:16/11;object-fit:cover;object-position:top;border-radius:3px;background:var(--paper);display:block}
+.shot-fallback{
+  width:100%;aspect-ratio:16/11;border-radius:3px;display:grid;place-items:center;
+  font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:2rem;color:#fff;letter-spacing:-.02em;
+}
+.card-body{padding:16px 6px 0}
+.badge{
+  display:inline-block;font-size:.66rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase;
+  background:var(--mint);color:var(--ink);padding:3px 9px;border-radius:999px;margin-bottom:9px;
+}
+.card h3{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.32rem;letter-spacing:-.02em;margin-bottom:7px}
+.card p{font-size:.92rem;color:var(--ink-soft);margin-bottom:13px}
+.stack{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:15px}
+.chip{font-size:.72rem;font-weight:600;color:var(--ink-soft);border:1px solid var(--line);padding:3px 10px;border-radius:999px}
+.card-links{display:flex;gap:16px}
+.card-links a{font-size:.85rem;font-weight:700;color:var(--ink);text-decoration:none;border-bottom:2px solid var(--blush);padding-bottom:1px}
+.card-links a:hover{border-color:var(--ink)}
+
+/* ---------- skills ---------- */
+.skill-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.skill{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px}
+.skill h4{font-size:.72rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:12px}
+.skill h4::before{content:"";display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--d,var(--blush));margin-right:8px;vertical-align:middle}
+.skill:nth-child(2) h4::before{--d:var(--mint)}
+.skill:nth-child(3) h4::before{--d:var(--butter)}
+.skill:nth-child(4) h4::before{--d:var(--peri)}
+.skill p{font-size:.94rem;line-height:1.75}
+
+/* ---------- about ---------- */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.about-copy p{margin-bottom:18px;font-size:1.02rem}
+.facts{border-top:1px solid var(--line)}
+.fact{display:grid;grid-template-columns:112px 1fr;gap:18px;padding:15px 0;border-bottom:1px solid var(--line)}
+.fact dt{font-size:.7rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-soft);padding-top:3px}
+.fact dd{font-size:.96rem}
+
+/* ---------- contact ---------- */
+.contact{text-align:center;padding:100px 0 90px}
+.contact h2{font-size:clamp(2.6rem,9vw,6.4rem);margin-bottom:22px}
+.contact-links{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:34px}
+footer{border-top:1px solid var(--line);padding:26px 0;font-size:.82rem;color:var(--ink-soft);text-align:center}
+
+/* ---------- reveal ---------- */
+.reveal>*{opacity:0;transform:translateY(20px);transition:opacity .65s cubic-bezier(.22,1,.36,1),transform .65s cubic-bezier(.22,1,.36,1)}
+.reveal.in>*{opacity:1;transform:none}
+.reveal.in>*:nth-child(1){transition-delay:.02s}
+.reveal.in>*:nth-child(2){transition-delay:.10s}
+.reveal.in>*:nth-child(3){transition-delay:.18s}
+.reveal.in>*:nth-child(4){transition-delay:.26s}
+/* cards settle in one after another */
+.work-grid .card,.skill-grid .skill{opacity:0;transform:translateY(24px) rotate(0)}
+.reveal.in .work-grid .card{animation:settle .7s cubic-bezier(.22,1,.36,1) forwards}
+.reveal.in .skill-grid .skill{animation:rise .6s cubic-bezier(.22,1,.36,1) forwards}
+.reveal.in .work-grid .card:nth-child(1),.reveal.in .skill-grid .skill:nth-child(1){animation-delay:.10s}
+.reveal.in .work-grid .card:nth-child(2),.reveal.in .skill-grid .skill:nth-child(2){animation-delay:.20s}
+.reveal.in .work-grid .card:nth-child(3),.reveal.in .skill-grid .skill:nth-child(3){animation-delay:.30s}
+.reveal.in .work-grid .card:nth-child(4),.reveal.in .skill-grid .skill:nth-child(4){animation-delay:.40s}
+@keyframes settle{to{opacity:1;transform:translateY(0) rotate(var(--rot,0deg))}}
+
+@media(max-width:860px){
+  .hero{grid-template-columns:1fr;gap:40px}
+  .hero-photo{justify-self:start}
+  .hero-photo img,.photo-fallback{max-width:260px;width:260px}
+  .about{grid-template-columns:1fr;gap:36px}
+  .nav-links{gap:16px}
+  .nav-links a{font-size:.72rem;letter-spacing:.06em}
+}
+@media(max-width:560px){
+  .nav-links{display:none}
+  header{padding:64px 0 50px}
+  .fact{grid-template-columns:1fr;gap:3px}
+}
+@media(prefers-reduced-motion:reduce){
+  *{transition:none!important;animation:none!important}
+  .r,.reveal>*,.work-grid .card,.skill-grid .skill,.hero-photo .frame{opacity:1!important;transform:none!important}
+  .swash::before{transform:rotate(-1.2deg) scaleX(1)!important}
+  html{scroll-behavior:auto}
+}
+a:focus-visible,button:focus-visible{outline:3px solid var(--peri);outline-offset:3px;border-radius:4px}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-in">
+    <div class="logo">Srishti<span>.</span></div>
+    <ul class="nav-links">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="wrap">
+  <div class="hero">
+    <div class="hero-text">
+      <div class="eyebrow r r1" style="--dot:var(--blush)">Hello, I'm Srishti</div>
+      <h1 class="r r2">I build things<br>people <span class="swash" style="--sw:var(--butter)">actually</span><br><span class="serif-it">open twice.</span></h1>
+      <p class="hero-sub r r3">
+        Final-year IT student at Monash, Melbourne. I design and build
+        <strong>full-stack web and Android apps</strong> — the kind that ship, not the kind that stay in a folder.
+      </p>
+      <div class="hero-row r r4">
+        <a class="btn btn-solid" href="#work">See my work ↓</a>
+        <a class="btn btn-ghost" href="https://photo-a-week.netlify.app/" target="_blank" rel="noopener">Try my latest app ↗</a>
+      </div>
+      <div class="hero-meta r r5">
+        <span><b>Based in</b> Melbourne</span>
+        <span><b>Graduating</b> Dec 2026</span>
+        <span><b>Open to</b> grad roles &amp; internships</span>
+      </div>
+    </div>
+
+    <div class="hero-photo">
+      <div class="frame" id="heroFrame">
+        <img src="assets/srishti.jpg" alt="Srishti Bhattacharya" data-fallback="photo" data-letter="S">
+        <div class="cap">that&rsquo;s me</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="work" class="wrap reveal">
+  <div class="eyebrow" style="--dot:var(--mint)">Selected work</div>
+  <h2>Things I made,<br>and <span class="serif-it">actually finished.</span></h2>
+  <p class="sec-lead">Four projects. One of them is live right now and you can log into it — start there.</p>
+
+  <div class="work-grid">
+
+    <article class="card">
+      <img class="shot" src="assets/photo-a-week.png" alt="Photo a Week app" data-fallback="shot" data-label="Photo a Week" data-bg="#E9A6B8">
+      <div class="card-body">
+        <span class="badge">Live · Full-stack</span>
+        <h3>Photo a Week</h3>
+        <p>A scrapbook for your year: one photo a week onto a calendar, arranged like a real diary. Private, syncs across devices, installs to your home screen.</p>
+        <p style="font-size:.87rem">Built auth, a Postgres database, private file storage, and row-level security so each person only ever sees their own photos — plus revocable "view once" share links.</p>
+        <div class="stack">
+          <span class="chip">JavaScript</span><span class="chip">Supabase</span>
+          <span class="chip">PostgreSQL</span><span class="chip">PWA</span>
+        </div>
+        <div class="card-links">
+          <a href="https://photo-a-week.netlify.app/" target="_blank" rel="noopener">Live app ↗</a>
+          <a href="https://github.com/Sriashch/photo-a-week" target="_blank" rel="noopener">Code ↗</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="shot-fallback" style="background:#9FD3C0">NutriTrack</div>
+      <div class="card-body">
+        <span class="badge" style="background:var(--butter)">Android</span>
+        <h3>NutriTrack</h3>
+        <p>A native Android app giving personalised nutrition insights, pairing an AI model for guidance with a nutrition API for real food data.</p>
+        <div class="stack">
+          <span class="chip">Kotlin</span><span class="chip">Jetpack Compose</span>
+          <span class="chip">Room</span><span class="chip">MVVM</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="shot-fallback" style="background:#A9B7F0">CommunityLink</div>
+      <div class="card-body">
+        <span class="badge" style="background:var(--peri)">Web</span>
+        <h3>CommunityLink</h3>
+        <p>A platform matching volunteers with community opportunities, built on an MVC architecture with a relational database behind it.</p>
+        <div class="stack">
+          <span class="chip">CakePHP</span><span class="chip">MySQL</span><span class="chip">Bootstrap</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="shot-fallback" style="background:#F2D06B;color:#26222B">LoopCare</div>
+      <div class="card-body">
+        <span class="badge" style="background:var(--blush)">Design</span>
+        <h3>LoopCare</h3>
+        <p>Led a team as Scrum Master through user research, wireframes, and interactive prototypes — the project that got me into design, not just code.</p>
+        <div class="stack">
+          <span class="chip">Figma</span><span class="chip">User research</span><span class="chip">Agile</span>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section id="skills" class="wrap reveal">
+  <div class="eyebrow" style="--dot:var(--butter)">What I work with</div>
+  <h2>The <span class="swash" style="--sw:var(--mint)">toolkit</span></h2>
+  <p class="sec-lead">Comfortable across the stack. Happiest where design and engineering overlap.</p>
+
+  <div class="skill-grid">
+    <div class="skill"><h4>Languages</h4><p>JavaScript, Kotlin, Python, Java, PHP, SQL</p></div>
+    <div class="skill"><h4>Web &amp; Mobile</h4><p>Jetpack Compose, HTML/CSS, CakePHP, REST APIs, Progressive Web Apps</p></div>
+    <div class="skill"><h4>Backend &amp; Data</h4><p>Supabase, PostgreSQL, MySQL, authentication, row-level security</p></div>
+    <div class="skill"><h4>Design &amp; Process</h4><p>Figma, prototyping, user research, Git, Agile/Scrum</p></div>
+  </div>
+</section>
+
+<section id="about" class="wrap reveal">
+  <div class="eyebrow" style="--dot:var(--peri)">Nice to meet you</div>
+  <h2>Beyond the <span class="serif-it">portfolio</span></h2>
+
+  <div class="about">
+    <div class="about-copy">
+      <p>I'm curious about why things work — products, people, the small decisions that make an interface feel obvious instead of confusing. That curiosity is what pulled me from writing code into caring about the person on the other side of the screen.</p>
+      <p>Most of what I've learned came from building something, breaking it, and figuring out why. Photo a Week started as a weekend idea and turned into a real app with accounts and a database, mostly because I kept asking "but what if someone actually used this?"</p>
+      <p>I like clarity. I like when things make sense. And I like shipping.</p>
+    </div>
+
+    <dl class="facts">
+      <div class="fact"><dt>Based in</dt><dd>Melbourne, Australia</dd></div>
+      <div class="fact"><dt>Studying</dt><dd>Bachelor of IT (Software Development), Monash University</dd></div>
+      <div class="fact"><dt>Currently</dt><dd>Learning UX design and design systems</dd></div>
+      <div class="fact"><dt>Off the clock</dt><dd>Photography, scrapbooking, finding excuses to redesign things</dd></div>
+      <div class="fact"><dt>Also me</dt><dd>I will absolutely rearrange the polaroids on a page until they feel right</dd></div>
+      <div class="fact"><dt>Looking for</dt><dd>Graduate software roles, starting 2027</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section id="contact" class="contact reveal">
+  <div class="wrap">
+    <div class="eyebrow" style="--dot:var(--blush);justify-content:center">Contact</div>
+    <h2>Let's <span class="swash" style="--sw:var(--peri)">build</span><br>something.</h2>
+    <p class="sec-lead" style="margin:0 auto">Open to graduate roles and internships. I reply to everything.</p>
+    <div class="contact-links">
+      <a class="btn btn-solid" href="mailto:YOUR@EMAIL.COM">Email me</a>
+      <a class="btn btn-ghost" href="https://linkedin.com/in/YOUR-HANDLE" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a class="btn btn-ghost" href="https://github.com/Sriashch" target="_blank" rel="noopener">GitHub ↗</a>
+    </div>
+  </div>
+</section>
+
+<footer>Designed &amp; built by Srishti Bhattacharya · Melbourne</footer>
+
+<script>
+(function(){
+  // swap in a coloured block if an image is missing
+  document.querySelectorAll('img[data-fallback]').forEach(img=>{
+    img.addEventListener('error', ()=>{
+      const d = document.createElement('div');
+      if(img.dataset.fallback === 'photo'){
+        d.className = 'photo-fallback';
+        d.textContent = img.dataset.letter || 'S';
+      } else {
+        d.className = 'shot-fallback';
+        d.style.background = img.dataset.bg || '#E9A6B8';
+        d.textContent = img.dataset.label || '';
+      }
+      img.replaceWith(d);
+    });
+  });
+
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // reveal sections + draw their swashes
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(!e.isIntersecting) return;
+      e.target.classList.add('in');
+      e.target.querySelectorAll('.swash').forEach(sw=>sw.classList.add('drawn'));
+      io.unobserve(e.target);
+    });
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // hero swash draws after the headline lands
+  const heroSwash = document.querySelector('header .swash');
+  if(heroSwash) setTimeout(()=>heroSwash.classList.add('drawn'), reduce ? 0 : 700);
+
+  if(reduce) return;
+
+  // gentle parallax on the hero photo
+  const frame = document.getElementById('heroFrame');
+  if(frame){
+    let ticking = false;
+    window.addEventListener('scroll', ()=>{
+      if(ticking) return;
+      ticking = true;
+      requestAnimationFrame(()=>{
+        const y = Math.min(window.scrollY, 600);
+        frame.style.translate = '0 ' + (y * -0.045) + 'px';
+        ticking = false;
+      });
+    }, {passive:true});
+  }
+})();
+</script>
+</body>
+</html>
